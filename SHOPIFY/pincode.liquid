@@ -1,0 +1,19 @@
+<div class="status">
+    <input type="text" name="pin" id="pincode" placeholder="Check now">
+    <button id="checkbtn">CHECK ME</button>
+    <p class="message"></p>
+</div>
+
+<script>
+    var pincode = [{{ settings.pin }}];
+    console.log(pincode);
+    function checkpin() {
+        var zipcode = document.getElementById("pincode").value;
+        if (pincode.includes(parseInt(zipcode))) { $('.message').html('<span>valid</span>') } else { $('.message').html('<span> InValid</span>') }
+
+    }
+    var btnclick = document.getElementById("checkbtn");
+    btnclick.addEventListener("click", checkpin);
+</script>
+
+{% render 'pincode' %}
