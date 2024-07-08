@@ -3,7 +3,7 @@ let Main = document.getElementsByTagName("main")[0];
 let Click = document.getElementById("me");
 async function Getdata(Topic) {
   let Data = await fetch(
-    `https://newsapi.org/v2/everything?q=${Topic}&from=2024-06-02&sortBy=publishedAt&apiKey=d505d9b0bdef4983a254fd1a6206dd92`
+    `https://newsapi.org/v2/everything?q=${Topic}&from=2024-07-07&sortBy=publishedAt&apiKey=d505d9b0bdef4983a254fd1a6206dd92`
   );
   let Res = await Data.json();
   let Finaldata = Res.articles;
@@ -26,7 +26,7 @@ async function Getdata(Topic) {
     }
   });
 }
-Getdata("cricket");
+Getdata("sachin");
 function Search() {
   let Tab = me.value;
   Getdata(Tab);
