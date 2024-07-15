@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import "./components/Card.css";
 import Card from "./components/Card.jsx";
+import Card2 from "./components/Card2.jsx";
 function App() {
   let [Count, SetCount] = useState(0);
   let [Display, SetCard] = useState(false);
@@ -120,9 +121,10 @@ function App() {
         </center>
       </div>
       <div className="container">
-        {Display
-          ? Data.map((e, i) => <Card Image={e.Image} Title={e.Title} />)
-          : null}
+        {Data.map((e, i) =>
+          Display ? <Card Image={e.Image} Title={e.Title} /> : null
+        )}
+        <Card2 />
       </div>
     </>
   );
