@@ -36,7 +36,7 @@ function Form() {
   };
 
   return (
-    <form action="">
+    <form noValidate>
       <span>{errors.names && "please enter name"}</span>
       <input type="text" onChange={handleChange} name="names" />
 
