@@ -1,0 +1,48 @@
+// ?----------Components-------------------
+
+import useGetQuerry from "./hooks/useGetQuerry";
+// ?--------------------------------------
+
+export default function App() {
+  const [data, isLoading] = useGetQuerry({
+    url: "https://jsonplaceholder.org/users",
+  });
+  if (isLoading) {return(<div><div>Loading</div></div>)}
+  
+  
+  
+    return (
+      <div style={{ background: "white" }}>
+        <ul>
+          {data.map((user) => (
+            <li key={user.id}>{user.firstname}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+
+
+
+================================================================================================================================
+
+import { useEffect } from "react";
+import { useState } from "react";
+
+const useGetQuerry = (config = {}) => {
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    fetch(config.url)
+      .then((response) => response.json())
+      .then((response) => setData(response))
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  });
+  return { data, isLoading };
+};
+
+export default useGetQuerry;
