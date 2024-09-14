@@ -1,0 +1,38 @@
+        <!-- DYNAMIC SLIDER -->
+      <img id ="img" width="600px" height="500px"/>
+     
+
+
+<!-- RESPONSIVE IMAGE HTML TAG -->
+    <picture>
+        <source media="(min-width:650px)" srcset="./assets/1.png">
+        <source media="(min-width:465px)" srcset="./assets/2.png">
+        <img src="./assets/3.png" alt="Flowers" style="width:auto;">
+    </picture>
+
+
+
+
+
+
+
+const image = ["1.png", "2.png", "3.png", "3.png", "4.png", "5.png"];
+const imgDiv = document.querySelector("#img");
+// img.src = "./assets/1.png";
+let currentIndex = 0;
+let LastIndex = image.length - 1;
+
+function showImage() {
+  imgDiv.src = `./assets/${image[currentIndex]}`;
+}
+setInterval(Slide, 1000);
+
+function Slide() {
+  let index = getLastIndex();
+  showImage(index);
+}
+
+function getLastIndex() {
+  currentIndex = currentIndex == LastIndex ? 0 : currentIndex + 1;
+  return currentIndex;
+}
